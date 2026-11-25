@@ -54,28 +54,15 @@ async function downloadTarball(tarball_filename) {
 
   let mirrors;
   try {
-    // Fetch an up-to-date list of available mirrors from ziglang.org.
-    const mirrors_response = await fetch(MIRRORS_URL);
-    mirrors = (await mirrors_response.text()).split('\n').filter((url) => url.length != 0);
+    throw new Error("lol");
   } catch {
     // ziglang.org itself is inaccessible. As a fallback (so that ziglang.org outages don't break
     // this Action), use a hardcoded mirror list. This was manually fetched from ziglang.org, and I
     // expect that at least some of these mirrors will continue working. It only needs to be updated
     // if the upstream list changes *significantly*.
     mirrors = [
-      "https://pkg.machengine.org/zig",
-      "https://zigmirror.hryx.net/zig",
-      "https://zig.linus.dev/zig",
-      "https://zig.squirl.dev",
-      "https://zig.florent.dev",
-      "https://zig.mirror.mschae23.de/zig",
-      "https://zigmirror.meox.dev",
-      "https://ziglang.freetls.fastly.net",
-      "https://zig.tilok.dev",
-      "https://zig-mirror.tsimnet.eu/zig",
-      "https://zig.karearl.com/zig",
-      "https://pkg.earth/zig",
-      "https://fs.liujiacai.net/zigbuilds",
+      "https://zig.savalione.com",
+      "https://zig.bcr.ist"
     ];
   }
 
